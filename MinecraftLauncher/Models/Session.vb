@@ -320,9 +320,9 @@ Namespace JBou.Authentication
 
         Public Shadows Class MojangUser
             <JsonProperty("id")>
-            Public Property Id As String
+            Public Shadows Property Id As String
             <JsonProperty("properties")>
-            Public Property Properties() As IList(Of authenticationDatabase.Userproperty)
+            Public Shadows Property Properties() As IList(Of authenticationDatabase.Userproperty)
 
         End Class
     End Class

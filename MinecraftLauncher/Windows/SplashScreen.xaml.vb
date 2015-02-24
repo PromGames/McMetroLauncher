@@ -79,13 +79,13 @@ Public Class SplashScreen
         Dim sBuild As String = oAssembly.Version.Build.ToString()
 
         lbl_Version.Text = sVersion
-        Dim attributes As Object() = Assembly.GetExecutingAssembly().GetCustomAttributes(GetType(AssemblyCopyrightAttribute), False)
-        If attributes.Length > 0 Then
-            Dim CopyrightAttribute As AssemblyCopyrightAttribute = DirectCast(attributes(0), AssemblyCopyrightAttribute)
-            If CopyrightAttribute.Copyright <> "" Then
-                lbl_copyright.Text = CopyrightAttribute.Copyright
-            End If
-        End If
+        'Dim attributes As Object() = Assembly.GetExecutingAssembly().GetCustomAttributes(GetType(AssemblyCopyrightAttribute), False)
+        'If attributes.Length > 0 Then
+        '    Dim CopyrightAttribute As AssemblyCopyrightAttribute = DirectCast(attributes(0), AssemblyCopyrightAttribute)
+        '    If CopyrightAttribute.Copyright <> "" Then
+        '        lbl_copyright.Text = CopyrightAttribute.Copyright
+        '    End If
+        'End If
 
         If Await internetconnection() = True Then
             If GetJavaPath() = Nothing OrElse New FileInfo(GetJavaPath()).Exists = False Then
