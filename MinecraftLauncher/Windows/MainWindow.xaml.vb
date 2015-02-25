@@ -283,10 +283,12 @@ Public Class MainWindow
                                           argumentreplacements.Add(New String() {"${auth_access_token}", Startinfos.Session.AccessToken})
                                           argumentreplacements.Add(New String() {"${auth_session}", "token:" & Startinfos.Session.AccessToken & ":" & Startinfos.Session.SelectedProfile.Id})
                                           Dim jo As New JObject
-                                          For Each item As authenticationDatabase.Userproperty In Startinfos.Session.User.Properties
-                                              jo.Add(New JProperty(item.name, item.value))
-                                          Next
-                                          argumentreplacements.Add(New String() {"${user_properties}", jo.ToString})
+                                          If Not IsNothing(Startinfos.Session.User.Properties) Then
+                                              For Each item As authenticationDatabase.Userproperty In Startinfos.Session.User.Properties
+                                                  jo.Add(New JProperty(item.name, item.value))
+                                              Next
+                                              argumentreplacements.Add(New String() {"${user_properties}", jo.ToString})
+                                          End If
                                           'TODO:
                                           'argumentreplacements.Add(New String() {"${user_type}", "mojang/legacy"})
                                           'Vielleicht twitch token aus einstellungen, so kann man auch cracked streamen

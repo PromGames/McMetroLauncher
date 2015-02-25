@@ -51,7 +51,8 @@ Public Class Settings
     Public Sub New()
         _lstLanguages = New List(Of Language) From {New Language("Deutsch", "JBou", "/resources/languages/mcml.de-de.xaml", "de-de", New Uri("/resources/languages/icons/de.png", UriKind.Relative)),
                                                     New Language("English", "JBou, ep9869", "/resources/languages/mcml.en-us.xaml", "en-us", New Uri("/resources/languages/icons/en.png", UriKind.Relative)),
-                                                    New Language("tiếng Việt", "sdvn", "/resources/languages/mcml.vn-vn.xaml", "vn-vn", New Uri("/resources/languages/icons/vn.png", UriKind.Relative))}
+                                                    New Language("tiếng Việt", "sdvn", "/resources/languages/mcml.vn-vn.xaml", "vn-vn", New Uri("/resources/languages/icons/vn.png", UriKind.Relative)),
+                                                    New Language("Spanish", "Ugamers", "/resources/languages/mcml.es-es.xaml", "es-es", New Uri("/resources/languages/icons/en.png", UriKind.Relative))}
         LoadDefaultLanguage()
         mcpfad = Nothing
         Accent = "Blue"
@@ -67,6 +68,8 @@ Public Class Settings
             Me.ActivLanguage = lstLanguages(0)
         ElseIf currentCultur.TwoLetterISOLanguageName = "vn" Then
             Me.ActivLanguage = lstLanguages(2)
+        ElseIf currentCultur.TwoLetterISOLanguageName = "es" Then
+            Me.ActivLanguage = lstLanguages(3)
         Else
             Me.ActivLanguage = lstLanguages(1)
         End If
